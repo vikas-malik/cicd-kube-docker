@@ -15,7 +15,7 @@ pipeline {
 
         stage('BUILD'){
             steps {
-                sh 'mvn clean install -DskipTests'
+                sh 'mvn install'
             }
             post {
                 success {
@@ -27,13 +27,13 @@ pipeline {
 
         stage('UNIT TEST'){
             steps {
-                sh 'mvn test -X'
+                sh 'mvn test'
             }
         }
 
         stage('INTEGRATION TEST'){
             steps {
-                sh 'mvn verify -DskipUnitTests'
+                sh 'mvn verify'
             }
         }
 
